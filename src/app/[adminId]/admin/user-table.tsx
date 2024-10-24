@@ -1,5 +1,8 @@
+import Link from "next/link"
+
 const participant = [
-  { phone: '456789', score: '78' },
+  { phone: '074567895', score: '78' },
+  { phone: '09344546', score: '78' },
   // More people...
 ]
 
@@ -40,9 +43,9 @@ export default function UserTable() {
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.score}</td>
                       
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                          Edit<span className="sr-only">, {person.phone}</span>
-                        </a>
+                        <Link href={`${process.env.NEXT_PUBLIC_ADMIN_ID}/admin/answer-detail/${person.phone}`} className="text-indigo-600 hover:text-indigo-900">
+                          View Detail<span className="sr-only">, {person.phone}</span>
+                        </Link>
                       </td>
                     </tr>
                   ))}
